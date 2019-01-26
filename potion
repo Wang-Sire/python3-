@@ -1,0 +1,24 @@
+Learning python3 One:
+  今天搞了一天的python3的一个小问题，面向对象的特征上的封装，多态，继承。－－继承。python对于继承还是有比较的方便，单继承和多继承可以一块用，但是最好
+ 少用多继承，查看一个类有有多少父类可以__mro__方法：好了直接奔主题：
+        python3 继承的几种用法：
+        此方法主要是实现初期的，小白学习的python问题，私有类调用父类的特殊函数：
+        
+class  Base(object):
+    def __init__(self):　　　　　　　　　　　　　#　声明一个特殊了类
+        print("ahhha")　　　　　　　　　　　　　　#  这个没调用
+⑥  def __str__(self):                       ＃　实现是子类的私有方法__main调用父类的__str__方法
+        print("父类的__str__调用成功")　
+③　class You(Base):
+   　 def __init__(self):
+     　   print("you____init") 
+⑤  　def __mian(self):　　　　　　　　　　　　　　　＃　写一个私有类
+      　  Base.__str__(self)　　　　　　　　　　　　＃这个调用是普通调用可以用super实现，我的项目有多重继承所以没有用super
+④  　def print_main(self):                      ＃这个方法是用来，调用本类中的私有类进行输出
+      　  self.__mian()
+
+
+①　　ba = You()　　　　　　　　　　　　　　　　　　　＃实例化Ｙou方法　
+②　　ba.print_main()
+
+大概流程：
